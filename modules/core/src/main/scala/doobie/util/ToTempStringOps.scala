@@ -4,5 +4,5 @@
 
 package doobie.util
 
-// TODO remove this file when upgrading to a new 2.13 release
+// file exist for binary compatibility, remove when moving to 0.8.0
 trait ToTempStringOps

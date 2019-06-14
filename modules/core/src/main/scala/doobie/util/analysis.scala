@@ -17,6 +17,7 @@ import cats.implicits._
 import cats.data.Ior
 
 /** Module defining a type for analyzing the type alignment of prepared statements. */
+@SuppressWarnings(Array("org.wartremover.warts.JavaSerializable"))
 object analysis {
 
   /** Metadata for the JDBC end of a column/parameter mapping. */

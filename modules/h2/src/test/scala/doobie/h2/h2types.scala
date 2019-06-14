@@ -12,7 +12,7 @@ import org.specs2.mutable.Specification
 import scala.concurrent.ExecutionContext
 
 // Establish that we can read various types. It's not very comprehensive as a test, bit it's a start.
-@SuppressWarnings(Array("org.wartremover.warts.NonUnitStatements"))
+@SuppressWarnings(Array("org.wartremover.warts.JavaSerializable", "org.wartremover.warts.NonUnitStatements"))
 object h2typesspec extends Specification {
 
   implicit def contextShift: ContextShift[IO] =
@@ -38,6 +38,7 @@ object h2typesspec extends Specification {
       a0 <- sql"SELECT value FROM TEST".query[Option[A]].unique
     } yield (a0)
 
+  @SuppressWarnings(Array("org.wartremover.warts.StringPlusAny"))
   def testInOut[A](col: String, a: A)(implicit m: Get[A], p: Put[A]) =
     s"Mapping for $col as ${m.typeStack}" >> {
       s"write+read $col as ${m.typeStack}" in {
