@@ -12,7 +12,7 @@ import org.specs2.mutable.Specification
 import scala.concurrent.ExecutionContext
 
 // Establish that we can read various types. It's not very comprehensive as a test, bit it's a start.
-@SuppressWarnings(Array("org.wartremover.warts.JavaSerializable", "org.wartremover.warts.NonUnitStatements"))
+@SuppressWarnings(Array("org.wartremover.warts.NonUnitStatements"))
 object h2typesspec extends Specification {
 
   implicit def contextShift: ContextShift[IO] =
